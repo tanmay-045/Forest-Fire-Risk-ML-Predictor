@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction - Algeria Forest Fires</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; padding: 20px;">
+
+    <header>
+        <h1 style="text-align: center;">FWI Prediction</h1>
+        <h2 style="text-align: center;">Algeria Forest Fire Prediction - FWI</h2>
+    </header>
+
+    <section>
+        <h3>About Algeria Forest Fires</h3>
+        <p>
+            Algeria is known for its expansive forest areas that are vulnerable to wildfires due to dry and hot conditions. Forest fires in Algeria have caused significant environmental and economic damage over the years. The Forest Weather Index (FWI) is a key indicator used to predict and assess the risk of forest fires by measuring the potential danger based on weather conditions.
+        </p>
+    </section>
+
+    <section>
+        <h3>FWI Prediction Input Details</h3>
+        <p>Please provide the following details to predict the FWI (Forest Weather Index) :</p>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <label for="Temperature">Temperature (°C):</label><br>
+            <input type="text" name="Temperature" placeholder="Temperature (e.g., 0 - 42°C)" required="required" /><br><br>
+
+            <label for="RH">Relative Humidity (%):</label><br>
+            <input type="text" name="RH" placeholder="RH (e.g., 0 - 100%)" required="required" /><br><br>
+
+            <label for="Ws">Wind Speed (km/h):</label><br>
+            <input type="text" name="Ws" placeholder="Ws (e.g., 0 - 30 km/h)" required="required" /><br><br>
+
+            <label for="Rain">Rain (mm):</label><br>
+            <input type="text" name="Rain" placeholder="Rain (e.g., 0 - 16.8 mm)" required="required" /><br><br>
+
+            <label for="FFMC">FFMC (Fine Fuel Moisture Code):</label><br>
+            <input type="text" name="FFMC" placeholder="FFMC (e.g., 18.7 - 96.20)" required="required" /><br><br>
+
+            <label for="DMC">DMC (Duff Moisture Code):</label><br>
+            <input type="text" name="DMC" placeholder="DMC (e.g., 1.1 - 291.3)" required="required" /><br><br>
+
+            <label for="ISI">ISI (Initial Spread Index):</label><br>
+            <input type="text" name="ISI" placeholder="ISI (e.g., 0.0 - 56.10)" required="required" /><br><br>
+
+            <label for="Classes">Fire Weather Class:</label><br>
+            <input type="text" name="Classes" placeholder="Classes (1 - 5)" required="required" /><br><br>
+
+            <label for="Region">Region (North/South):</label><br>
+            <input type="text" name="Region" placeholder="Region (1 for North, 2 for South)" required="required" /><br><br>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    </section>
+
+    <section>
+        <h3>The FWI prediction is {{result}}</h3>
+    </section>
+
+    <section>
+        <h3>Interpreting the FWI Prediction</h3>
+        <p>
+            The Forest Weather Index (FWI) represents the potential risk of forest fires based on weather conditions. The FWI value is calculated using a combination of temperature, humidity, wind speed, and rainfall, among other factors. A higher FWI value indicates a greater risk of forest fires, while a lower value suggests a lower risk. The FWI scale can be interpreted as follows:
+        </p>
+        <ul>
+            <li><strong>Low (0 - 5):</strong> Minimal fire risk; conditions are not conducive to wildfires.</li>
+            <li><strong>Moderate (5 - 20):</strong> Fire risk is present, but conditions are still manageable.</li>
+            <li><strong>High (20 - 40):</strong> Significant fire risk; fires may spread rapidly under current conditions.</li>
+            <li><strong>Very High (40 - 60):</strong> Severe fire risk; fires are likely to spread very quickly and require immediate action.</li>
+            <li><strong>Extreme (60+):</strong> Extreme fire danger; fires will spread uncontrollably, requiring urgent and extensive firefighting resources.</li>
+        </ul>
+        <p>
+            Understanding this scale allows you to interpret the risk level and take the necessary precautions for fire prevention and control.
+        </p>
+    </section>
+
+    
+    <footer style="margin-top: 40px; text-align: center;">
+        <h3>About Me</h3>
+        <p>Hi, I'm Tanmay Sharma! I am a Data Science enthusiast with a strong background in machine learning and data analysis.</p>
+        <p>Connect with me:</p>
+        <p>
+            <a href="https://www.linkedin.com/in/tanmaysharma045" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/tanmay-045/" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>
